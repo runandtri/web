@@ -15,6 +15,14 @@ type HeroVideo = {
 };
 
 const VIDEOS: HeroVideo[] = [
+  // Default clip (pickVideo falls back to VIDEOS[0]); self-hosted so the hero
+  // never depends on a CDN being up.
+  {
+    key: "run",
+    label: "Carrera al amanecer",
+    src: "/video/carrera-amanecer.mp4",
+    overlay: 30,
+  },
   {
     key: "swim",
     label: "Aguas abiertas",
@@ -40,12 +48,6 @@ const VIDEOS: HeroVideo[] = [
     key: "bike",
     label: "Ciclismo en ruta",
     src: "https://cdn.coverr.co/videos/coverr-a-group-of-cyclists-4885/1080p.mp4",
-    overlay: 30,
-  },
-  {
-    key: "run",
-    label: "Carrera al amanecer",
-    src: "https://assets.mixkit.co/videos/46654/46654-720.mp4",
     overlay: 30,
   },
   {
@@ -80,16 +82,12 @@ function pickVideo(): HeroVideo {
 const NAV_LINKS = [
   { label: "Método", href: "#metodo" },
   { label: "Servicios", href: "#servicios" },
+  { label: "Quién soy", href: "#quien-soy" },
   { label: "Deportistas", href: "#deportistas" },
   { label: "Tarifas", href: "#tarifas" },
 ];
 
-// Full-distance ladder: swim, bike, run.
-const HEADLINE = [
-  { verb: "Nada.", distance: "3,8K" },
-  { verb: "Rueda.", distance: "180K" },
-  { verb: "Corre.", distance: "42,2K" },
-];
+const HEADLINE = ["Nada.", "Rueda.", "Corre."];
 
 const STATS = [
   { value: "+20", label: "Años de experiencia" },
@@ -173,15 +171,12 @@ export default function Hero() {
             </div>
 
             <h1 className="animate-fade-up-delay-1 font-display font-black uppercase leading-[0.88] tracking-tight text-white">
-              {HEADLINE.map((line) => (
+              {HEADLINE.map((verb) => (
                 <span
-                  key={line.verb}
-                  className="flex items-baseline gap-4 text-[clamp(3.2rem,9vw,8rem)]"
+                  key={verb}
+                  className="block text-[clamp(3.2rem,9vw,8rem)]"
                 >
-                  {line.verb}
-                  <span className="hidden font-split text-xs font-normal tracking-widest text-white/40 sm:inline">
-                    {line.distance}
-                  </span>
+                  {verb}
                 </span>
               ))}
             </h1>

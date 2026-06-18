@@ -34,8 +34,8 @@ export default function Metodo() {
 
       <Reveal delay={150}>
         <p className="mt-8 max-w-2xl font-body text-sm leading-relaxed text-white/60 sm:text-base">
-          Tras más de 20 años de experiencia hemos desarrollado un método en el
-          que todo gira en torno al deportista, siendo nosotros los que nos
+          Con los años hemos desarrollado un método en el que todo gira en
+          torno al deportista, siendo nosotros los que nos
           adaptamos a sus necesidades — haciendo posible que la metodología de
           entrenamiento más avanzada esté al servicio de cualquier objetivo.
         </p>

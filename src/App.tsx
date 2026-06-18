@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Hero from "./sections/Hero";
 import Metodo from "./sections/Metodo";
 import Servicios from "./sections/Servicios";
+import QuienSoy from "./sections/QuienSoy";
 import Deportistas from "./sections/Deportistas";
 import Tarifas from "./sections/Tarifas";
 import Contacto from "./sections/Contacto";
@@ -22,6 +23,7 @@ export default function App() {
       <Hero />
       <Metodo />
       <Servicios />
+      <QuienSoy />
       <Deportistas />
       <Tarifas />
       <Contacto />
