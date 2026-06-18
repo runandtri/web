@@ -18,9 +18,9 @@ const VIDEOS: HeroVideo[] = [
   // Default clip (pickVideo falls back to VIDEOS[0]); self-hosted so the hero
   // never depends on a CDN being up.
   {
-    key: "run",
-    label: "Carrera al amanecer",
-    src: "/video/carrera-amanecer.mp4",
+    key: "atardecer",
+    label: "Carrera al atardecer",
+    src: "/video/carrera-atardecer.mp4",
     overlay: 30,
   },
   {
@@ -63,9 +63,9 @@ const VIDEOS: HeroVideo[] = [
     overlay: 45,
   },
   {
-    key: "dusk",
-    label: "Atardecer (anterior)",
-    src: "https://assets.mixkit.co/videos/608/608-1080.mp4",
+    key: "amanecer",
+    label: "Carrera al amanecer",
+    src: "/video/carrera-amanecer.mp4",
     overlay: 30,
   },
 ];

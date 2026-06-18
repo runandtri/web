@@ -7,10 +7,10 @@ also be downloaded and self-hosted (as `triatlon-salida.mp4` already is).
 |-------|---------|------|
 | swim  | Mixkit  | Mixkit Free License — assets.mixkit.co/videos/46929 |
 | bike  | Coverr  | Coverr License — coverr.co "a group of cyclists" 4885 |
-| run   | Mixkit  | Mixkit Free License — self-hosted as `carrera-amanecer.mp4` (from assets.mixkit.co/videos/46654). Default hero clip. |
+| amanecer | Mixkit | Mixkit Free License — self-hosted as `carrera-amanecer.mp4` (from assets.mixkit.co/videos/46654). Alternate (golden-hour run). |
 | pool  | Mixkit  | Mixkit Free License — assets.mixkit.co/videos/33192 |
 | track | Mixkit  | Mixkit Free License — assets.mixkit.co/videos/609 |
-| dusk  | Mixkit  | Mixkit Free License — assets.mixkit.co/videos/608 |
+| atardecer | Mixkit | Mixkit Free License — self-hosted as `carrera-atardecer.mp4` (from assets.mixkit.co/videos/608, transcoded to 4 MB, audio stripped). Default hero clip. |
 | start | Pixabay | Pixabay Content License — pixabay.com video 29661.
           Cropped to remove sponsor (SUBARU) branding. Wide age-group race
           start; the iconic ocean mass-start charge is paywalled (Getty/iStock).
