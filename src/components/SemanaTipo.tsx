@@ -4,6 +4,7 @@ const DISCIPLINE_COLOR: Record<string, string> = {
   nada: "bg-atlantico",
   rueda: "bg-amanecer",
   corre: "bg-tiza",
+  fuerza: "bg-white/40",
 };
 
 const WEEK = [
@@ -15,46 +16,47 @@ const WEEK = [
   },
   {
     day: "M",
-    session: "Natación 2.400 m",
-    detail: "Técnica + 8×100",
-    disciplines: ["nada"],
+    session: "Rodaje suave 50'",
+    detail: "Z2 · técnica de carrera",
+    disciplines: ["corre"],
   },
   {
     day: "X",
-    session: "Rodillo 1h15'",
-    detail: "Z2 · cadencia",
-    disciplines: ["rueda"],
+    session: "Fuerza 45'",
+    detail: "Gimnasio · core + tren inferior",
+    disciplines: ["fuerza"],
   },
   {
     day: "J",
-    session: "Pista 50'",
-    detail: "6×400 + cuestas",
+    session: "Series en pista 1h",
+    detail: "6×1.000 a ritmo umbral",
     disciplines: ["corre"],
   },
   {
     day: "V",
-    session: "Aguas abiertas 2.000 m",
-    detail: "Neopreno · orientación",
+    session: "Natación suave 1.500 m",
+    detail: "Descarga · técnica",
     disciplines: ["nada"],
   },
   {
     day: "S",
-    session: "Bici 2h30' + 15' carrera",
-    detail: "Transición — brick",
-    disciplines: ["rueda", "corre"],
+    session: "Bici rodillo 1h15'",
+    detail: "Z2 · cadencia",
+    disciplines: ["rueda"],
   },
   {
     day: "D",
-    session: "Tirada larga 1h20'",
+    session: "Tirada larga 1h30'",
     detail: "Progresiva",
     disciplines: ["corre"],
   },
 ];
 
 const LEGEND = [
+  { key: "corre", label: "Carrera" },
   { key: "nada", label: "Natación" },
   { key: "rueda", label: "Ciclismo" },
-  { key: "corre", label: "Carrera" },
+  { key: "fuerza", label: "Fuerza" },
 ];
 
 export default function SemanaTipo() {
@@ -67,12 +69,16 @@ export default function SemanaTipo() {
               Una semana tipo
             </div>
             <p className="mt-3 max-w-xl font-body text-sm leading-relaxed text-white/60 sm:text-base">
-              Microciclo real de media distancia, fase específica. Tu plan se
-              construye sobre tu semana — trabajo, familia y horas reales de
-              entreno.
+              La semana de un corredor en plena fase específica. No es una
+              plantilla: la construimos sobre tu vida — trabajo, familia y las
+              horas reales que tienes para entrenar.
+            </p>
+            <p className="mt-4 max-w-xl font-split text-[10px] uppercase tracking-[0.2em] text-white/40">
+              Cuatro ejes — deportista · objetivo · momento de temporada ·
+              disponibilidad
             </p>
           </div>
-          <div className="flex gap-5">
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
             {LEGEND.map((item) => (
               <span
                 key={item.key}
@@ -120,7 +126,7 @@ export default function SemanaTipo() {
           ))}
         </div>
         <p className="mt-4 font-split text-[10px] uppercase tracking-widest text-white/35">
-          Ejemplo — cada plan se programa semana a semana sobre tus horarios.
+          Ejemplo — cada semana la programamos sobre tus horarios reales.
         </p>
       </Reveal>
     </div>

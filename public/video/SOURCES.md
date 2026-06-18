@@ -7,7 +7,7 @@ also be downloaded and self-hosted (as `triatlon-salida.mp4` already is).
 |-------|---------|------|
 | swim  | Mixkit  | Mixkit Free License — assets.mixkit.co/videos/46929 |
 | bike  | Coverr  | Coverr License — coverr.co "a group of cyclists" 4885 |
-| run   | Mixkit  | Mixkit Free License — assets.mixkit.co/videos/46654 |
+| run   | Mixkit  | Mixkit Free License — self-hosted as `carrera-amanecer.mp4` (from assets.mixkit.co/videos/46654). Default hero clip. |
 | pool  | Mixkit  | Mixkit Free License — assets.mixkit.co/videos/33192 |
 | track | Mixkit  | Mixkit Free License — assets.mixkit.co/videos/609 |
 | dusk  | Mixkit  | Mixkit Free License — assets.mixkit.co/videos/608 |

@@ -1,3 +1,5 @@
+import { ArrowUpRight } from "lucide-react";
+
 import Reveal from "../components/Reveal";
 
 const ATHLETES = [
@@ -32,12 +34,11 @@ export default function Deportistas() {
           Nuestros deportistas
         </div>
         <h2 className="mt-6 font-display text-[clamp(2.6rem,6vw,5rem)] font-black uppercase leading-[0.92] tracking-tight text-white">
-          El equipo.
+          Lo que dicen.
         </h2>
         <p className="mt-6 max-w-2xl font-body text-sm leading-relaxed text-white/60 sm:text-base">
-          Estos son algunos de los miembros de nuestro equipo de corredores y
-          triatletas. Si quieres formar parte de él, ponte en contacto con
-          nosotros.
+          Estos son algunos de los corredores y triatletas que confían en
+          nuestro trabajo. Si quieres entrenar con nosotros, ponte en contacto.
         </p>
       </Reveal>
 
@@ -60,6 +61,18 @@ export default function Deportistas() {
           </Reveal>
         ))}
       </div>
+
+      <Reveal>
+        <a
+          href="https://maps.app.goo.gl/4SkfFh2FztPdLSG36"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-12 inline-flex items-center gap-2 border border-white/30 px-6 py-3 font-split text-xs uppercase tracking-widest text-white transition-colors hover:border-atlantico hover:bg-white/10 lg:mt-16"
+        >
+          Ver reseñas en Google
+          <ArrowUpRight className="h-4 w-4" />
+        </a>
+      </Reveal>
     </section>
   );
 }
