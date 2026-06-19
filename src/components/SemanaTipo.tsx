@@ -70,8 +70,9 @@ export default function SemanaTipo() {
             </div>
             <p className="mt-3 max-w-xl font-body text-sm leading-relaxed text-white/60 sm:text-base">
               La semana de un corredor en plena fase específica. No es una
-              plantilla: la construimos sobre tu vida — trabajo, familia y las
-              horas reales que tienes para entrenar.
+              plantilla: la construimos sobre tu vida — trabajo, familia,
+              lesiones o patologías previas y las horas reales que tienes para
+              entrenar.
             </p>
             <p className="mt-4 max-w-xl font-split text-[10px] uppercase tracking-[0.2em] text-white/40">
               Cuatro ejes — deportista · objetivo · momento de temporada ·

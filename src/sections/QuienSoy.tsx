@@ -11,6 +11,7 @@ const PROFESIONAL = [
   "Entrenador nacional de atletismo",
   "Máster en Alto Rendimiento en Deportes Cíclicos (Universidad de Murcia)",
   "Especialista en entrenamiento por potencia en ciclismo",
+  "Instructor de Pilates",
   "+20 años de experiencia en deportes de resistencia",
 ];
 
