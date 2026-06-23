@@ -4,6 +4,7 @@ import Hero from "./sections/Hero";
 import Metodo from "./sections/Metodo";
 import Servicios from "./sections/Servicios";
 import QuienSoy from "./sections/QuienSoy";
+import Resenas from "./sections/Resenas";
 import Tarifas from "./sections/Tarifas";
 import Contacto from "./sections/Contacto";
 
@@ -32,6 +33,7 @@ export default function App() {
       <Metodo />
       <Servicios />
       <QuienSoy />
+      <Resenas />
       <Tarifas />
       <Contacto />
     </main>
