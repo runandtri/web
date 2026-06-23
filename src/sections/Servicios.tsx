@@ -17,7 +17,7 @@ export default function Servicios() {
     <section id="servicios" className="bg-neoprene px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
       <Reveal>
         <div className="flex items-center gap-3 font-split text-xs uppercase tracking-[0.3em] text-white/50 sm:text-sm">
-          <span className="h-1.5 w-1.5 bg-atlantico" />
+          <span data-sport="bike" className="h-1.5 w-1.5 bg-tick" />
           Servicios
         </div>
         <h2 className="mt-6 font-display text-[clamp(2.6rem,6vw,5rem)] font-black uppercase leading-[0.92] tracking-tight text-white">
@@ -27,7 +27,7 @@ export default function Servicios() {
 
       <div className="mt-14 grid gap-6 lg:mt-20 lg:grid-cols-2">
         <Reveal>
-          <article className="flex h-full flex-col border border-white/15 p-8 transition-colors hover:border-atlantico/60 sm:p-10">
+          <article className="flex h-full flex-col border border-white/15 p-8 transition-colors hover:border-accent/60 sm:p-10">
             <div className="font-split text-xs uppercase tracking-widest text-white/40">
               En persona
             </div>
@@ -56,7 +56,7 @@ export default function Servicios() {
             </div>
             <a
               href="#contacto"
-              className="group mt-auto flex items-center gap-2 pt-8 font-split text-xs uppercase tracking-widest text-white transition-colors hover:text-atlantico"
+              className="group mt-auto flex items-center gap-2 pt-8 font-split text-xs uppercase tracking-widest text-white transition-colors hover:text-accent"
             >
               Reserva tu valoración
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -65,7 +65,7 @@ export default function Servicios() {
         </Reveal>
 
         <Reveal delay={150}>
-          <article className="flex h-full flex-col border border-white/15 p-8 transition-colors hover:border-atlantico/60 sm:p-10">
+          <article className="flex h-full flex-col border border-white/15 p-8 transition-colors hover:border-accent/60 sm:p-10">
             <div className="font-split text-xs uppercase tracking-widest text-white/40">
               Online
             </div>
@@ -83,7 +83,7 @@ export default function Servicios() {
             </p>
             <a
               href="#contacto"
-              className="group mt-auto flex items-center gap-2 pt-8 font-split text-xs uppercase tracking-widest text-white transition-colors hover:text-atlantico"
+              className="group mt-auto flex items-center gap-2 pt-8 font-split text-xs uppercase tracking-widest text-white transition-colors hover:text-accent"
             >
               Empieza donde estés
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

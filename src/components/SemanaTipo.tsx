@@ -61,7 +61,7 @@ const LEGEND = [
 
 export default function SemanaTipo() {
   return (
-    <div className="mt-20 lg:mt-28">
+    <div id="semana-tipo" className="mt-20 lg:mt-28">
       <Reveal>
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>

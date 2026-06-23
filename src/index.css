@@ -2,6 +2,260 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Page ground + foreground. Defaults equal today's look: near-black ground,
+     white text/lines/icons. The light ?warmth= themes (6, 7) flip these. */
+  --bg: 11 12 14; /* #0B0C0E neoprene */
+  --ink: 255 255 255; /* white */
+  /* Accent + eyebrow-tick colours as RGB channels (consumed by the `accent`
+     and `tick` Tailwind colours). Defaults are atlantico teal — today's look. */
+  --accent: 63 163 155; /* #3FA39B */
+  --tick: 63 163 155; /* #3FA39B */
+  /* Themeable surfaces. Defaults equal today's look: --divider used at /10
+     alpha reproduces the old `white/10` hairlines; --surface-raised equals
+     neoprene-raised (#121316). Only ?warmth=3 warms these. */
+  --divider: 255 255 255;
+  --surface-raised: 18 19 22; /* #121316 */
+  /* Discipline colours for the SemanaTipo strip. Defaults equal the brand
+     hexes; the light themes darken --run so the cream dot stays visible. */
+  --swim: 63 163 155; /* #3FA39B atlantico */
+  --bike: 217 116 63; /* #D9743F amanecer */
+  --run: 231 226 211; /* #E7E2D3 tiza */
+  /* Hero scrim multiplier: the per-clip darkening (set inline as --clip-overlay)
+     is multiplied by this. 1 = today's look; the joy themes lower it to let the
+     footage's own light and colour through. */
+  --hero-dim: 1;
+}
+
+/* ?warmth= variants, applied by App.tsx as data-warmth on <html>.
+   Variant 1 (subtle): warm only the eyebrow ticks; interactions stay teal. */
+[data-warmth="1"] {
+  --tick: 217 116 63; /* #D9743F amanecer */
+}
+
+/* Variant 2 (warm accent): the whole interactive accent goes warm orange —
+   ticks, hovers, focus rings, buttons. Teal recedes to the SemanaTipo swim
+   tick, which keeps its literal atlantico. */
+[data-warmth="2"] {
+  --accent: 217 116 63; /* #D9743F amanecer */
+  --tick: 217 116 63; /* #D9743F amanecer */
+}
+
+/* Variant 3 (warm accent + surfaces): the warm accent of variant 2, plus
+   warmer hairline dividers and a faint warm tint on the raised panels. The
+   base still reads dark — this is how far "warm" goes before it touches the
+   base. */
+[data-warmth="3"] {
+  --accent: 217 116 63; /* #D9743F amanecer */
+  --tick: 217 116 63; /* #D9743F amanecer */
+  --divider: 236 186 159; /* warm peach hairline (amanecer lightened) */
+  --surface-raised: 26 21 16; /* faint warm tint over the dark base */
+}
+
+/* Variant 4 (three-colour ticks, optional): the eyebrow ticks rotate the
+   brand's three sport colours down the page — swim teal / bike orange / run
+   cream — instead of one tick colour. Each tick carries a data-sport hook in
+   its section; we override --tick on that span, which is also where bg-tick
+   reads it. --accent is left alone, so hovers, focus rings and buttons stay
+   teal. The colours are decorative here — a section is not a sport, so they
+   carry no real meaning; this is the heaviest variant and the first to cut. */
+[data-warmth="4"] [data-sport="swim"] {
+  --tick: 63 163 155; /* #3FA39B atlantico */
+}
+[data-warmth="4"] [data-sport="bike"] {
+  --tick: 217 116 63; /* #D9743F amanecer */
+}
+[data-warmth="4"] [data-sport="run"] {
+  --tick: 231 226 211; /* #E7E2D3 tiza */
+}
+
+/* ?warmth=5–7 are full "joy" themes. Unlike 1–4 (which only retint accents on
+   the unchanged dark base), these repaint the page ground and text, brighten
+   the hero, and warm or light the whole site — because joy comes from light and
+   imagery, not accent hue. Each is a complete, self-contained theme. */
+
+/* Variant 5 — Atardecer (warm dark): the same dark, athletic site bathed in
+   amber. A warm near-black ground, soft warm-white text, an amanecer accent,
+   and a much brighter hero so the sunset light floods in. The conservative joy
+   — still unmistakably the current site, just alive and warm. */
+[data-warmth="5"] {
+  --bg: 22 17 13; /* warm near-black */
+  --ink: 246 240 230; /* warm off-white */
+  --accent: 224 122 67; /* amanecer, a touch brighter */
+  --tick: 224 122 67;
+  --surface-raised: 31 24 18;
+  --divider: 236 186 159; /* warm peach hairline */
+  --hero-dim: 0.5; /* halve the darkening — let the warm footage through */
+}
+
+/* Variant 6 — Mediodía (cream daylight): a full light theme. Warm cream ground,
+   near-black text, a deepened teal accent that pops on the light, amanecer
+   ticks. Fresh and airy — the biggest departure from today. */
+[data-warmth="6"] {
+  --bg: 244 240 230; /* warm cream */
+  --ink: 22 24 28; /* near-black text */
+  --accent: 45 120 113; /* deepened atlantico, for contrast on light */
+  --tick: 211 110 58; /* amanecer, slightly deepened */
+  --surface-raised: 255 252 245; /* near-white raised cards lift off the cream */
+  --divider: 22 24 28; /* dark hairlines (used at /10) */
+  --run: 176 150 110; /* the run dot goes warm taupe — cream is invisible here */
+  --hero-dim: 0.4; /* a light cream wash over the footage */
+}
+
+/* Variant 7 — Sol (sunny warm light): a full light theme on the warm side. A
+   warmer off-white ground, a burnt-orange accent, teal ticks for a cool pop,
+   and the brightest hero. The most summery of the three. */
+[data-warmth="7"] {
+  --bg: 250 244 232; /* warm off-white */
+  --ink: 28 22 18; /* warm near-black text */
+  --accent: 198 88 40; /* burnt orange */
+  --tick: 63 163 155; /* atlantico teal, a cool pop on the warm ground */
+  --surface-raised: 255 250 240;
+  --divider: 28 22 18; /* warm dark hairlines (used at /10) */
+  --run: 168 146 104; /* warm taupe run dot for the light ground */
+  --hero-dim: 0.32; /* the lightest wash — sunniest hero */
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   ?warmth=8–15 — the COLOUR-FORWARD set. Where 5–7 only changed the page's
+   ground and temperature, these put the brand's three colours (teal/orange/
+   cream) on the page at full scale: whole sections in colour, gradients, loud
+   colour on the dark base, and single bold-colour heroes. Each section is its
+   own theming scope (it carries an id — #inicio, #metodo, #servicios,
+   #quien-soy, #tarifas, #contacto), so a theme recolours sections independently
+   by reassigning --bg / --ink / --accent / --tick on that scope. The SemanaTipo
+   strip is pinned to a dark panel across all of these (one rule at the end of
+   the group) so its discipline dots stay legible on any coloured Método.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* v8 — Bloques (colour-blocked, dark bookends): a dark hero, Método and
+   Contacto frame three full-colour blocks — orange Servicios, cream Quién soy,
+   teal Tarifas. Each block's text and tick flip to a legible contrasting hue. */
+[data-warmth="8"] #servicios {
+  --bg: 217 116 63; --ink: 28 18 12; /* dark text on orange */
+  --accent: 45 120 113; --tick: 45 120 113; --divider: 28 18 12;
+  --surface-raised: 217 116 63;
+}
+[data-warmth="8"] #quien-soy {
+  --bg: 231 226 211; --ink: 28 24 20; /* dark text on cream */
+  --accent: 196 92 44; --tick: 196 92 44; --divider: 28 24 20;
+}
+[data-warmth="8"] #tarifas {
+  --bg: 63 163 155; --ink: 245 243 237; /* cream-white text on teal */
+  --accent: 217 116 63; --tick: 217 116 63; --divider: 245 243 237;
+  --surface-raised: 63 163 155;
+}
+
+/* v9 — Bloques saturados (colour everywhere): every section a brand colour and
+   the hero washed teal. No dark left — the loudest version. */
+[data-warmth="9"] #inicio { --bg: 63 163 155; --ink: 245 243 237; --tick: 217 116 63; --hero-dim: 0.8; }
+[data-warmth="9"] #metodo {
+  --bg: 231 226 211; --ink: 28 24 20; --accent: 196 92 44; --tick: 196 92 44; --divider: 28 24 20;
+}
+[data-warmth="9"] #servicios {
+  --bg: 63 163 155; --ink: 245 243 237; --accent: 217 116 63; --tick: 217 116 63;
+  --divider: 245 243 237; --surface-raised: 63 163 155;
+}
+[data-warmth="9"] #quien-soy {
+  --bg: 217 116 63; --ink: 28 18 12; --accent: 45 120 113; --tick: 45 120 113; --divider: 28 18 12;
+}
+[data-warmth="9"] #tarifas {
+  --bg: 231 226 211; --ink: 28 24 20; --accent: 45 120 113; --tick: 45 120 113; --divider: 28 24 20;
+}
+[data-warmth="9"] #contacto {
+  --surface-raised: 63 163 155; --ink: 245 243 237; --accent: 217 116 63; --tick: 217 116 63;
+  --divider: 245 243 237;
+}
+
+/* v10 — Atardecer (sunset gradient washes on dark): warm gradient light bleeds
+   across otherwise-dark sections, with a warm hero. Subtle, moody colour. */
+[data-warmth="10"] { --ink: 245 243 237; }
+[data-warmth="10"] #inicio { --bg: 36 20 12; --hero-dim: 0.5; --tick: 224 122 67; }
+[data-warmth="10"] #servicios {
+  background-image: linear-gradient(150deg, rgb(217 116 63 / 0.8), rgb(63 163 155 / 0.35) 70%, transparent);
+  --tick: 224 122 67;
+}
+[data-warmth="10"] #quien-soy {
+  background-image: linear-gradient(150deg, rgb(63 163 155 / 0.55), transparent 65%);
+}
+[data-warmth="10"] #tarifas {
+  background-image: linear-gradient(150deg, rgb(217 116 63 / 0.85), rgb(40 22 14 / 0.9) 70%);
+  --tick: 224 122 67;
+}
+
+/* v11 — Degradado (bold full gradients): saturated corner-to-corner brand
+   gradients; text flips dark where the gradient runs light. */
+[data-warmth="11"] #inicio { --bg: 30 16 10; --ink: 245 243 237; --tick: 224 122 67; --hero-dim: 0.45; }
+[data-warmth="11"] #metodo {
+  background-image: linear-gradient(135deg, rgb(28 18 12), rgb(11 12 14)); --ink: 245 243 237;
+}
+[data-warmth="11"] #servicios {
+  background-image: linear-gradient(135deg, rgb(217 116 63), rgb(231 226 211));
+  --ink: 28 18 12; --accent: 45 120 113; --tick: 45 120 113; --divider: 28 18 12;
+}
+[data-warmth="11"] #quien-soy {
+  background-image: linear-gradient(135deg, rgb(231 226 211), rgb(63 163 155));
+  --ink: 28 24 20; --accent: 196 92 44; --tick: 196 92 44; --divider: 28 24 20;
+}
+[data-warmth="11"] #tarifas {
+  background-image: linear-gradient(135deg, rgb(63 163 155), rgb(217 116 63));
+  --ink: 245 243 237; --tick: 245 243 237; --divider: 245 243 237;
+}
+[data-warmth="11"] #contacto {
+  background-image: linear-gradient(135deg, rgb(40 22 14), rgb(11 12 14)); --ink: 245 243 237;
+}
+
+/* v12 — Oscuro vivo (loud colour on the dark base): the current dark site, but
+   big teal/orange section headings, matching eyebrow ticks and accents, and
+   larger ticks. Colour without leaving the athletic dark identity. */
+[data-warmth="12"] #metodo h2,
+[data-warmth="12"] #quien-soy h2 { color: rgb(63 163 155); }
+[data-warmth="12"] #servicios,
+[data-warmth="12"] #tarifas { --accent: 217 116 63; --tick: 217 116 63; }
+[data-warmth="12"] #servicios h2,
+[data-warmth="12"] #tarifas h2 { color: rgb(217 116 63); }
+[data-warmth="12"] #contacto h2 { color: rgb(63 163 155); }
+[data-warmth="12"] .bg-tick { width: 0.6rem; height: 0.6rem; }
+
+/* v13 — Neón (electric colour on dark): bold colour headings, and the outlined
+   CTAs filled in bright accent instead of bordered. The most graphic version. */
+[data-warmth="13"] #servicios { --accent: 217 116 63; --tick: 217 116 63; }
+[data-warmth="13"] #metodo h2,
+[data-warmth="13"] #quien-soy h2,
+[data-warmth="13"] #contacto h2 { color: rgb(63 163 155); }
+[data-warmth="13"] #servicios h2,
+[data-warmth="13"] #tarifas h2 { color: rgb(217 116 63); }
+[data-warmth="13"] a.border {
+  background-color: rgb(var(--accent)); color: rgb(11 12 14); border-color: transparent;
+}
+[data-warmth="13"] .bg-tick { width: 0.6rem; height: 0.6rem; }
+
+/* v14 — Héroe teal: one bold teal hero (the scrim washes the clip teal), then a
+   clean dark body carrying larger orange/teal accents. */
+[data-warmth="14"] #inicio { --bg: 63 163 155; --ink: 245 243 237; --tick: 231 226 211; --hero-dim: 0.9; }
+[data-warmth="14"] #servicios { --accent: 217 116 63; --tick: 217 116 63; }
+[data-warmth="14"] #servicios h2 { color: rgb(217 116 63); }
+[data-warmth="14"] #tarifas h2 { color: rgb(63 163 155); }
+
+/* v15 — Héroe sol: one bold sunset hero (the scrim washes the clip orange),
+   then warm accents through a clean dark body. */
+[data-warmth="15"] { --accent: 224 122 67; --tick: 224 122 67; }
+[data-warmth="15"] #inicio { --bg: 205 98 46; --ink: 250 247 240; --hero-dim: 0.85; }
+[data-warmth="15"] #servicios h2,
+[data-warmth="15"] #tarifas h2 { color: rgb(224 122 67); }
+
+/* SemanaTipo stays a dark data-panel across every colour-forward theme (8–15),
+   so its teal/orange/cream discipline dots read whatever colour Método becomes
+   around it. It sits inside #metodo, so this override wins for its subtree. */
+[data-warmth="8"] #semana-tipo, [data-warmth="9"] #semana-tipo,
+[data-warmth="10"] #semana-tipo, [data-warmth="11"] #semana-tipo,
+[data-warmth="12"] #semana-tipo, [data-warmth="13"] #semana-tipo,
+[data-warmth="14"] #semana-tipo, [data-warmth="15"] #semana-tipo {
+  --bg: 11 12 14; --ink: 255 255 255; --surface-raised: 18 19 22;
+  --accent: 63 163 155; --tick: 63 163 155; --divider: 255 255 255;
+  --swim: 63 163 155; --bike: 217 116 63; --run: 231 226 211;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -12,8 +266,17 @@ body {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid #3fa39b;
+  outline: 2px solid rgb(var(--accent));
   outline-offset: 3px;
+}
+
+/* The hero's flat legibility scrim. Its colour follows the page ground
+   (bg-neoprene), so it darkens the footage on the dark themes and washes it
+   lighter on the light ones. Its strength is the per-clip --clip-overlay (set
+   inline in Hero.tsx) times the theme's --hero-dim, so today's look is
+   unchanged (--hero-dim: 1) while the joy themes brighten the hero. */
+.hero-scrim {
+  opacity: calc(var(--clip-overlay, 0) * var(--hero-dim, 1));
 }
 
 @media (prefers-reduced-motion: reduce) {
