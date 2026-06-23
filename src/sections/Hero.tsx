@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { ArrowUpRight, Award, Waves, X } from "lucide-react";
 
 // Hero background clips. All free for commercial use (Mixkit Free License /
@@ -83,7 +83,6 @@ const NAV_LINKS = [
   { label: "Método", href: "#metodo" },
   { label: "Servicios", href: "#servicios" },
   { label: "Quién soy", href: "#quien-soy" },
-  { label: "Deportistas", href: "#deportistas" },
   { label: "Tarifas", href: "#tarifas" },
 ];
 
@@ -100,7 +99,7 @@ export default function Hero() {
   const video = pickVideo();
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-neoprene">
+    <section id="inicio" className="relative h-screen w-full overflow-hidden bg-neoprene">
       <video
         key={video.src}
         className="absolute inset-0 h-full w-full object-cover"
@@ -111,11 +110,14 @@ export default function Hero() {
         loop
         playsInline
       />
-      {/* Legibility: a flat dark layer tuned per clip, plus a left-weighted
-          gradient so the headline reads regardless of what the footage shows. */}
+      {/* Legibility: a flat scrim the colour of the page ground (so it darkens
+          the footage on dark themes and washes it lighter on light ones), plus a
+          left-weighted gradient so the headline reads regardless of the footage.
+          Strength = the per-clip overlay times the theme's --hero-dim (see the
+          .hero-scrim rule in index.css). */}
       <div
-        className="absolute inset-0 bg-black"
-        style={{ opacity: video.overlay / 100 }}
+        className="hero-scrim absolute inset-0 bg-neoprene"
+        style={{ "--clip-overlay": video.overlay / 100 } as CSSProperties}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-neoprene/80 via-neoprene/30 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-neoprene/70 via-transparent to-transparent" />
@@ -134,7 +136,7 @@ export default function Hero() {
               <a
                 key={link.label}
                 href={link.href}
-                className="font-split text-xs uppercase tracking-widest text-white/80 transition-colors hover:text-atlantico"
+                className="font-split text-xs uppercase tracking-widest text-white/80 transition-colors hover:text-accent"
               >
                 {link.label}
               </a>
@@ -143,7 +145,7 @@ export default function Hero() {
 
           <a
             href="#contacto"
-            className="hidden items-center gap-2 border border-white/30 px-6 py-3 font-split text-xs uppercase tracking-widest text-white transition-colors hover:border-atlantico hover:bg-white/10 md:flex"
+            className="hidden items-center gap-2 border border-white/30 px-6 py-3 font-split text-xs uppercase tracking-widest text-white transition-colors hover:border-accent hover:bg-white/10 md:flex"
           >
             Contacta
             <ArrowUpRight className="h-4 w-4" />
@@ -164,7 +166,7 @@ export default function Hero() {
         <div className="flex flex-1 items-center px-6 sm:px-10 lg:px-16">
           <div>
             <div className="animate-fade-up mb-6 flex items-center gap-3 lg:mb-8">
-              <Waves className="h-4 w-4 text-atlantico" />
+              <Waves className="h-4 w-4 text-tick" />
               <span className="font-split text-xs uppercase tracking-[0.3em] text-white/70 sm:text-sm">
                 Entrenamiento personal y online
               </span>
@@ -193,7 +195,7 @@ export default function Hero() {
             <div className="animate-fade-up-delay-3 mt-8 flex flex-wrap items-center gap-4 sm:gap-6 lg:mt-10">
               <a
                 href="#contacto"
-                className="group flex items-center gap-2 bg-neoprene px-5 py-3 font-split text-[11px] uppercase tracking-widest text-white transition-colors hover:bg-black sm:px-7 sm:py-4 sm:text-xs"
+                className="group flex items-center gap-2 bg-neoprene px-5 py-3 font-split text-[11px] uppercase tracking-widest text-white transition-colors hover:bg-neoprene-raised sm:px-7 sm:py-4 sm:text-xs"
               >
                 Empieza hoy
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -271,7 +273,7 @@ export default function Hero() {
           <a
             href="#contacto"
             onClick={() => setMenuOpen(false)}
-            className="mt-4 flex items-center gap-2 border border-white/30 px-8 py-4 font-split text-xs uppercase tracking-widest text-white transition-colors hover:border-atlantico hover:bg-white/10"
+            className="mt-4 flex items-center gap-2 border border-white/30 px-8 py-4 font-split text-xs uppercase tracking-widest text-white transition-colors hover:border-accent hover:bg-white/10"
             style={{
               transitionDelay: `${NAV_LINKS.length * 80 + 100}ms`,
               transitionProperty: "opacity, transform",

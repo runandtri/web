@@ -24,7 +24,7 @@ export default function Metodo() {
     <section id="metodo" className="bg-neoprene px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
       <Reveal>
         <div className="flex items-center gap-3 font-split text-xs uppercase tracking-[0.3em] text-white/50 sm:text-sm">
-          <span className="h-1.5 w-1.5 bg-atlantico" />
+          <span data-sport="swim" className="h-1.5 w-1.5 bg-tick" />
           Método RUNyTRI
         </div>
         <h2 className="mt-6 max-w-3xl font-display text-[clamp(2.6rem,6vw,5rem)] font-black uppercase leading-[0.92] tracking-tight text-white">
@@ -41,7 +41,7 @@ export default function Metodo() {
         </p>
       </Reveal>
 
-      <div className="mt-14 grid gap-px bg-white/10 sm:grid-cols-3 lg:mt-20">
+      <div className="mt-14 grid gap-px bg-divider/10 sm:grid-cols-3 lg:mt-20">
         {PILLARS.map((pillar, i) => (
           <Reveal key={pillar.number} delay={i * 120} className="bg-neoprene">
             <div className="h-full px-0 py-8 sm:px-8 sm:py-10">

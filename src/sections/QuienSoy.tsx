@@ -27,11 +27,11 @@ export default function QuienSoy() {
   return (
     <section
       id="quien-soy"
-      className="border-t border-white/10 bg-neoprene px-6 py-24 sm:px-10 lg:px-16 lg:py-32"
+      className="border-t border-divider/10 bg-neoprene px-6 py-24 sm:px-10 lg:px-16 lg:py-32"
     >
       <Reveal>
         <div className="flex items-center gap-3 font-split text-xs uppercase tracking-[0.3em] text-white/50 sm:text-sm">
-          <span className="h-1.5 w-1.5 bg-atlantico" />
+          <span data-sport="run" className="h-1.5 w-1.5 bg-tick" />
           Quién soy
         </div>
         <h2 className="mt-6 font-display text-[clamp(2.6rem,6vw,5rem)] font-black uppercase leading-[0.92] tracking-tight text-white">
@@ -61,7 +61,7 @@ export default function QuienSoy() {
             <div className="font-split text-xs uppercase tracking-widest text-white/40">
               Profesional
             </div>
-            <ul className="mt-6 divide-y divide-white/10">
+            <ul className="mt-6 divide-y divide-divider/10">
               {PROFESIONAL.map((item) => (
                 <li
                   key={item}
@@ -79,7 +79,7 @@ export default function QuienSoy() {
             <div className="font-split text-xs uppercase tracking-widest text-white/40">
               Deportiva
             </div>
-            <ul className="mt-6 divide-y divide-white/10">
+            <ul className="mt-6 divide-y divide-divider/10">
               {DEPORTIVA.map((item) => (
                 <li
                   key={item}

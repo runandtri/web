@@ -5,6 +5,7 @@ import {
   Mail,
   MessageCircle,
   Phone,
+  Star,
 } from "lucide-react";
 import Reveal from "../components/Reveal";
 
@@ -45,17 +46,23 @@ const CHANNELS = [
     value: "/runytri",
     href: "https://facebook.com/runytri",
   },
+  {
+    icon: Star,
+    label: "Reseñas en Google",
+    value: "Ver opiniones",
+    href: "https://maps.app.goo.gl/4SkfFh2FztPdLSG36",
+  },
 ];
 
 export default function Contacto() {
   return (
     <section
       id="contacto"
-      className="border-t border-white/10 bg-neoprene-raised px-6 pb-12 pt-24 sm:px-10 lg:px-16 lg:pt-32"
+      className="border-t border-divider/10 bg-neoprene-raised px-6 pb-12 pt-24 sm:px-10 lg:px-16 lg:pt-32"
     >
       <Reveal>
         <div className="flex items-center gap-3 font-split text-xs uppercase tracking-[0.3em] text-white/50 sm:text-sm">
-          <span className="h-1.5 w-1.5 bg-atlantico" />
+          <span data-sport="bike" className="h-1.5 w-1.5 bg-tick" />
           Contacto
         </div>
         <h2 className="mt-6 font-display text-[clamp(2.8rem,7vw,6rem)] font-black uppercase leading-[0.92] tracking-tight text-white">
@@ -63,7 +70,7 @@ export default function Contacto() {
         </h2>
       </Reveal>
 
-      <div className="mt-14 grid gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-14 grid gap-px bg-divider/10 sm:grid-cols-2 lg:grid-cols-3">
         {CHANNELS.map((channel, i) => (
           <Reveal key={channel.href} delay={i * 80} className="bg-neoprene-raised">
             <a
@@ -77,7 +84,7 @@ export default function Contacto() {
               className="group flex h-full items-center justify-between px-2 py-6 transition-colors hover:bg-white/5 sm:px-6"
             >
               <span className="flex items-center gap-4">
-                <channel.icon className="h-5 w-5 text-white/40 transition-colors group-hover:text-atlantico" />
+                <channel.icon className="h-5 w-5 text-white/40 transition-colors group-hover:text-accent" />
                 <span>
                   <span className="block font-split text-[10px] uppercase tracking-widest text-white/40">
                     {channel.label}
@@ -87,13 +94,13 @@ export default function Contacto() {
                   </span>
                 </span>
               </span>
-              <ArrowUpRight className="h-4 w-4 text-white/30 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-atlantico" />
+              <ArrowUpRight className="h-4 w-4 text-white/30 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent" />
             </a>
           </Reveal>
         ))}
       </div>
 
-      <div className="mt-20 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row sm:items-center">
+      <div className="mt-20 flex flex-col items-start justify-between gap-4 border-t border-divider/10 pt-8 sm:flex-row sm:items-center">
         <div className="font-display text-2xl font-black uppercase tracking-wide text-white">
           Run y Tri
         </div>
